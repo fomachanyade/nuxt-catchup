@@ -17,7 +17,7 @@ add(state:TodoState, text:string) {
     done: false
     })
 },
-remove(state:TodoState, { todo }) {
+remove(state:TodoState, todo:Todo) {
     state.list.splice(state.list.indexOf(todo), 1)
 },
 toggle(state:TodoState, todo:Todo) {
