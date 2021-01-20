@@ -34,15 +34,28 @@ export default {
     // https://go.nuxtjs.dev/buefy
     'nuxt-buefy',
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
+    // '@nuxt/http',
+     '@nuxtjs/axios',
+
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
+  publicRuntimeConfig: {
+    axios: {
+      baseURL: 'https://api.nuxtjs.dev'
+    }
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  // axios: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+  loading: {
+    color: 'DodgerBlue',
+    height: '10px',
+    continuous: true,
+    duration: 3000
   }
 }
