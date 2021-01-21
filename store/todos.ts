@@ -7,7 +7,7 @@ export type TodoState = {
 }
 
 export const state = ():TodoState => ({
-    list: new Array<Todo>()
+    list: [{text:'test',done:false}]
   })
   
 export const mutations = {

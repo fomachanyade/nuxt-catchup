@@ -2,9 +2,9 @@
   <ul>
     <li v-for="todo in todos" :key="todo.text">
       <input :checked="todo.done" @change="toggle(todo)" type="checkbox">
-      <span :class="{ done: todo.done }">{{ todo.text }}</span>
+      <span :class="{ done: todo.done, todoitem:true}">{{ todo.text }}</span>
     </li>
-    <li><input @keyup.enter="addTodo" placeholder="What needs to be done?"></li>
+    <li><input type="text" id='todo-input' title='todo' name='todo'  @keyup.enter="addTodo" placeholder="What needs to be done?"></li>
   </ul>
 </template>
 
