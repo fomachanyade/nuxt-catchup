@@ -11,24 +11,31 @@ describe('Todos', () => {
     await page.close()
   })
 
-  test('create new todos', async () => {
-     await page.waitFor('.todoitem');
-     const inputElement = await page.$('.todoitem')
-    // await page.type('#todo-input', 'test')
-    // const inputText = await page.evaluate(
-    //   (elm) => elm.textContent,
-    //   inputElement
-    // )
-    // console.log(inputText)
-    // await expect(inputText).toContain('test')
-    const spanText = await page.evaluate(
-        (elm) => elm.textContent,
-        inputElement
-      )
-      expect(spanText).toBe('test')
-    // await (await page.$( 'input[title="todo"]' )).press( "Enter" );
-    // const ele = page.$('span');
-    // const text = await page.evaluate(elm => elm.textContent, ele);
-    // await expect(text).toContain('test');
+  /**
+   * todoを作って、チェックして、doneになっているを確認する
+   */
+  it('create new todos and make it done', async () => {
+    const inputId = "[data-testId='todo-input']";
+    const todoText = 'todo-text';
+    const todoItemClass = "[data-testId='todo-item']";
+    const checkboxId = "[data-testId='todo-checkbox']";
+    const doneItemClass = '.done';
+
+    // const elementHandle = await page.$('[data-form="personal"]');
+    await page.type(inputId, todoText)
+    await (await page.$(inputId)).press('Enter')
+    await page.waitFor(todoItemClass)
+
+    const spanElement = await page.$(todoItemClass)
+
+    const spanText = await page.evaluate((elm) => elm.textContent, spanElement)
+    expect(spanText).toBe(todoText)
+
+    await page.click(checkboxId);
+    const doneItemText = await page.$eval(doneItemClass, item => {
+      return item.textContent;
+    });
+    expect(doneItemText).toBe(todoText)
+
   })
 })

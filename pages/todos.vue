@@ -1,10 +1,10 @@
 <template>
   <ul>
     <li v-for="todo in todos" :key="todo.text">
-      <input :checked="todo.done" @change="toggle(todo)" type="checkbox">
-      <span :class="{ done: todo.done, todoitem:true}">{{ todo.text }}</span>
+      <input data-testId='todo-checkbox' :checked="todo.done" @change="toggle(todo)" type="checkbox">
+      <span data-testId='todo-item' :class="{ done: todo.done}">{{ todo.text }}</span>
     </li>
-    <li><input type="text" id='todo-input' title='todo' name='todo'  @keyup.enter="addTodo" placeholder="What needs to be done?"></li>
+    <li><input data-testId='todo-input' type="text"  title='todo' name='todo'  @keyup.enter="addTodo" placeholder="What needs to be done?"></li>
   </ul>
 </template>
 
@@ -25,9 +25,6 @@ export default {
     ...mapMutations({
       toggle: 'todos/toggle'
     })
-    // toggle (todo) {
-    //   this.$store.commit('todos/toggle', todo)
-    // },
   }
 }
 </script>
