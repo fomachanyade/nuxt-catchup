@@ -26,14 +26,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapMutations } from 'vuex'
 import { TodosStore } from '~/store'
 import { Todo } from '~/store/todos'
 
 export default Vue.extend({
   computed: {
     todos() {
-      return TodosStore.getTodos
+      return TodosStore.todos
     },
   },
   methods: {

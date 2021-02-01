@@ -16,7 +16,7 @@ export type TodoState = {
 export default class TodosModule extends VuexModule {
   private list: Todo[] = []
 
-  public get getTodos() {
+  public get todos() {
     return this.list
   }
 
