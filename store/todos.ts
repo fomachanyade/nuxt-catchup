@@ -9,7 +9,7 @@ export type TodoState = {
   list: Todo[]
 }
 @Module({
-  name: 'todo',
+  name: 'todos',
   stateFactory: true,
   namespaced: true,
 })
