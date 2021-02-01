@@ -21,7 +21,7 @@ export default class TodosModule extends VuexModule {
   }
 
   @Mutation
-  private add(text: string) {
+  public add(text: string) {
     this.list.push({
       text,
       done: false,
@@ -29,27 +29,12 @@ export default class TodosModule extends VuexModule {
   }
 
   @Mutation
-  private remove(todo: Todo) {
+  public remove(todo: Todo) {
     this.list.splice(this.list.indexOf(todo), 1)
   }
 
   @Mutation
-  private toggle(todo: Todo) {
+  public toggle(todo: Todo) {
     todo.done = !todo.done
-  }
-
-  @Action({ rawError: true })
-  public addTodo(text: string) {
-    this.add(text)
-  }
-
-  @Action({ rawError: true })
-  public toggleTodo(todo: Todo) {
-    this.toggle(todo)
-  }
-
-  @Action({ rawError: true })
-  public removeTodo(todo: Todo) {
-    this.remove(todo)
   }
 }

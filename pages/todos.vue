@@ -38,11 +38,11 @@ export default Vue.extend({
   methods: {
     addTodo(e: KeyboardEvent) {
       const target = e.target as HTMLInputElement
-      TodosStore.addTodo(target.value)
+      TodosStore.add(target.value)
       target.value = ''
     },
     toggle(todo: Todo) {
-      TodosStore.toggleTodo(todo)
+      TodosStore.toggle(todo)
     },
   },
 })
