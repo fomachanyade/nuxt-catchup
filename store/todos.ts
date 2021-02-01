@@ -39,7 +39,7 @@ export default class TodosModule extends VuexModule {
   }
 
   @Action({ rawError: true })
-  public createTodo(text: string) {
+  public addTodo(text: string) {
     this.add(text)
   }
 

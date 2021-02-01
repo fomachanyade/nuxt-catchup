@@ -38,7 +38,7 @@ export default Vue.extend({
   methods: {
     addTodo(e: KeyboardEvent) {
       const target = e.target as HTMLInputElement
-      TodosStore.createTodo(target.value)
+      TodosStore.addTodo(target.value)
       target.value = ''
     },
     toggle(todo: Todo) {
