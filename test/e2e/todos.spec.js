@@ -24,7 +24,7 @@ describe('Todos', () => {
     // const elementHandle = await page.$('[data-form="personal"]');
     await page.type(inputId, todoText)
     await (await page.$(inputId)).press('Enter')
-    await page.waitFor(todoItemClass)
+    await page.waitForSelector(todoItemClass)
 
     const spanElement = await page.$(todoItemClass)
 

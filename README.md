@@ -21,7 +21,7 @@ yarn test:e2e
 ```
 
 ## e2e
-jest/puppeteerを使用
+jest/playwrightを使用
 コードはtest/e2e
 ### テスト対象
 - page/index.vue
