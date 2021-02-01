@@ -1,32 +1,52 @@
 <template>
   <ul>
     <li v-for="todo in todos" :key="todo.text">
-      <input data-testId='todo-checkbox' :checked="todo.done" @change="toggle(todo)" type="checkbox">
-      <span data-testId='todo-item' :class="{ done: todo.done}">{{ todo.text }}</span>
+      <input
+        data-testId="todo-checkbox"
+        :checked="todo.done"
+        @change="toggle(todo)"
+        type="checkbox"
+      />
+      <span data-testId="todo-item" :class="{ done: todo.done }">{{
+        todo.text
+      }}</span>
     </li>
-    <li><input data-testId='todo-input' type="text"  title='todo' name='todo'  @keyup.enter="addTodo" placeholder="What needs to be done?"></li>
+    <li>
+      <input
+        data-testId="todo-input"
+        type="text"
+        title="todo"
+        name="todo"
+        @keyup.enter="addTodo"
+        placeholder="What needs to be done?"
+      />
+    </li>
   </ul>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import { mapMutations } from 'vuex'
+import { TodosStore } from '~/store'
+import { Todo } from '~/store/todos'
 
-export default {
+export default Vue.extend({
   computed: {
-    todos () {
-      return this.$store.state.todos.list
-    }
+    todos() {
+      return TodosStore.getTodos
+    },
   },
   methods: {
-    addTodo (e) {
-      this.$store.commit('todos/add', e.target.value)
-      e.target.value = ''
+    addTodo(e: KeyboardEvent) {
+      const target = e.target as HTMLInputElement
+      TodosStore.createTodo(target.value)
+      target.value = ''
     },
-    ...mapMutations({
-      toggle: 'todos/toggle'
-    })
-  }
-}
+    toggle(todo: Todo) {
+      TodosStore.toggleTodo(todo)
+    },
+  },
+})
 </script>
 
 <style>
