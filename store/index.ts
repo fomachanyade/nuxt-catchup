@@ -1,9 +1,5 @@
-export const state = () => ({
-    counter: 0
-  })
-  
-export const mutations = {
-  increment(state:any) {
-    state.counter++
-  }
-}
+import { Store } from 'vuex'
+import { initializeStores } from '~/utils/store-accessor'
+const initializer = (store: Store<any>) => initializeStores(store)
+export const plugins = [initializer]
+export * from '~/utils/store-accessor'

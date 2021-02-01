@@ -3,8 +3,10 @@
     <h1>Having fun with loaders</h1>
   </div>
 </template>
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   /*
    ** programmatically start the loader so we force the page to take x2seconds to load
    */
@@ -13,6 +15,6 @@ export default {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 2000)
     })
-  }
-}
+  },
+})
 </script>

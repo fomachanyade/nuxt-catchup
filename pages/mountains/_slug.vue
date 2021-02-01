@@ -9,19 +9,19 @@
   </article>
 </template>
 <script>
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   async asyncData({ $axios, params }) {
-    const mountain = await $axios.$get(
-      `/mountains/${params.slug}`
-    )
+    const mountain = await $axios.$get(`/mountains/${params.slug}`)
     return { mountain }
   },
   methods: {
     goBack() {
       return this.$router.go(-1)
-    }
-  }
-}
+    },
+  },
+})
 </script>
 <style scoped>
 article {

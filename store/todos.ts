@@ -1,26 +1,40 @@
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
+
 export type Todo = {
   text: string
   done: boolean
 }
+
 export type TodoState = {
   list: Todo[]
 }
-
-export const state = (): TodoState => ({
-  list: [],
+@Module({
+  name: 'todos',
+  stateFactory: true,
+  namespaced: true,
 })
+export default class TodosModule extends VuexModule {
+  private list: Todo[] = []
 
-export const mutations = {
-  add(state: TodoState, text: string) {
-    state.list.push({
+  public get todos() {
+    return this.list
+  }
+
+  @Mutation
+  public add(text: string) {
+    this.list.push({
       text,
       done: false,
     })
-  },
-  remove(state: TodoState, todo: Todo) {
-    state.list.splice(state.list.indexOf(todo), 1)
-  },
-  toggle(state: TodoState, todo: Todo) {
+  }
+
+  @Mutation
+  public remove(todo: Todo) {
+    this.list.splice(this.list.indexOf(todo), 1)
+  }
+
+  @Mutation
+  public toggle(todo: Todo) {
     todo.done = !todo.done
-  },
+  }
 }
