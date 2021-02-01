@@ -7954,10 +7954,64 @@ pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
+playwright-chromium@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/playwright-chromium/-/playwright-chromium-1.8.0.tgz#5e68b07ee27e5fe132f758c40a5ee37a0e501288"
+  integrity sha512-DMyWmFPXkW0Tm5yBx2pV3m5F8qBSk29+DuZd21liwnG8qNZX43zEY1QpsS51zWPYFgi+nHkRr343GycyAoSUzQ==
+  dependencies:
+    commander "^6.1.0"
+    debug "^4.1.1"
+    extract-zip "^2.0.1"
+    https-proxy-agent "^5.0.0"
+    jpeg-js "^0.4.2"
+    mime "^2.4.6"
+    pngjs "^5.0.0"
+    progress "^2.0.3"
+    proper-lockfile "^4.1.1"
+    proxy-from-env "^1.1.0"
+    rimraf "^3.0.2"
+    ws "^7.3.1"
+
 playwright-core@>=1.2.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.8.0.tgz#3c2e8c52d21a032e68f2cdda91d107d9e6b79498"
   integrity sha512-3FDiIMabIkamEOPqdjHrPA1puIElx3iYIaln1k5G8ZyGRubmPE9AijHyTXYqkavgteUp+Kb8QOeE13nlnQ++Fg==
+  dependencies:
+    commander "^6.1.0"
+    debug "^4.1.1"
+    extract-zip "^2.0.1"
+    https-proxy-agent "^5.0.0"
+    jpeg-js "^0.4.2"
+    mime "^2.4.6"
+    pngjs "^5.0.0"
+    progress "^2.0.3"
+    proper-lockfile "^4.1.1"
+    proxy-from-env "^1.1.0"
+    rimraf "^3.0.2"
+    ws "^7.3.1"
+
+playwright-firefox@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/playwright-firefox/-/playwright-firefox-1.8.0.tgz#0f63a9f52d47b6c0d07123c0a10a48990711c6bc"
+  integrity sha512-CuBjgfnZX7w8hm4+YrBKaAWDJRE2SrNOn0qQcM6PEY3wzxrFAbtAH56m5ngEQjwNnEoM4XdrrxWjeP7h+WFW3Q==
+  dependencies:
+    commander "^6.1.0"
+    debug "^4.1.1"
+    extract-zip "^2.0.1"
+    https-proxy-agent "^5.0.0"
+    jpeg-js "^0.4.2"
+    mime "^2.4.6"
+    pngjs "^5.0.0"
+    progress "^2.0.3"
+    proper-lockfile "^4.1.1"
+    proxy-from-env "^1.1.0"
+    rimraf "^3.0.2"
+    ws "^7.3.1"
+
+playwright-webkit@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/playwright-webkit/-/playwright-webkit-1.8.0.tgz#b0342bccc11d333adce2862100d0e04e20f5cdd4"
+  integrity sha512-2kg/RCOxHolSY5JEFEsmYz9ogMZkL/PiOEW9QqUCDvYPRBEES/LE6k/orerIRwc9qmw//pWDxjZNLOWob2ioCw==
   dependencies:
     commander "^6.1.0"
     debug "^4.1.1"
@@ -10718,11 +10772,6 @@ vue@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
-
-vuex-module-decorators@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vuex-module-decorators/-/vuex-module-decorators-1.0.1.tgz#d34dafb5428a3636f1c26d3d014c15fc9659ccd0"
-  integrity sha512-FLWZsXV5XAtl/bcKUyQFpnSBtpc3wK/7zSdy9oKbyp71mZd4ut5y2zSd219wWW9OG7WUOlVwac4rXFFDVnq7ug==
 
 vuex@^3.6.0:
   version "3.6.0"

@@ -1,3 +1,3 @@
 module.exports = {
-  // Options...
+  browsers: ['chromium', 'webkit', 'firefox'],
 }
