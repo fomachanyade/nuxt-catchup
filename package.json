@@ -12,6 +12,7 @@
     "testServer": "nuxt build && nuxt start --port 3000"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^14.1.2",
     "@nuxt/http": "^0.6.2",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",

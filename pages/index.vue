@@ -7,7 +7,7 @@
       <li v-for="(post, key) in posts" :key="key">
         <div>
           <h1>{{ post.fields.title }}</h1>
-          <p>{{ post.fields.body }}</p>
+          <div v-html="toHtmlString(post.fields.body)"></div>
         </div>
       </li>
     </ul>
@@ -16,6 +16,7 @@
 
 <script>
 import { createClient } from '~/plugins/contentful.js'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 const client = createClient()
 
@@ -42,6 +43,11 @@ export default {
         }
       })
       .catch(console.error)
+  },
+  methods: {
+    toHtmlString(obj) {
+      return documentToHtmlString(obj)
+    },
   },
 }
 </script>
