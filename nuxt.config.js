@@ -53,6 +53,15 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extend(config, { isDev, isClient }) {
+      
+      // `isDev` が true の場合、webpack を開発モードに設定します。
+      if (isClient) {
+        config.node = {
+          fs: 'empty',
+        };
+      }
+    }
   },
   loading: {
     color: 'DodgerBlue',
