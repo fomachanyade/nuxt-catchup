@@ -4,7 +4,7 @@
       <h1>Vimeo API</h1>
       <div>
         <h2>get content from vimeo</h2>
-        <p>url: https://vimeo.com/65720665</p>
+        <p>url: https://vimeo.com/517001529/3c65724142</p>
         <template v-if="videoHtml">
           <div v-html="videoHtml"></div>
         </template>
@@ -28,7 +28,7 @@ let Vimeos = require('vimeo').Vimeo
 let client = new Vimeos(
   '961b222cac5d10f12d83e003b342df78bd35ef60',
   'KeF0FjKgui7eO9rIxgKnb7EnUOavO9FGrV9dP1uFUxHL12N/ywI0Itqm1AawklZ6mEGRp+vhc8ieW0cdY3nsTczglhgApVl5ErwNIi96j77Ig4t09d9Cw3OlKYf04L7L',
-  '648a6ef5e49d167d2bf730be50ec1943'
+  'a827242a9e5e656e8df4a1e3d67f9530'
 )
 export default {
   data: function () {
@@ -38,20 +38,21 @@ export default {
     client = new Vimeos(
       '961b222cac5d10f12d83e003b342df78bd35ef60',
       'KeF0FjKgui7eO9rIxgKnb7EnUOavO9FGrV9dP1uFUxHL12N/ywI0Itqm1AawklZ6mEGRp+vhc8ieW0cdY3nsTczglhgApVl5ErwNIi96j77Ig4t09d9Cw3OlKYf04L7L',
-      '648a6ef5e49d167d2bf730be50ec1943'
+      'a827242a9e5e656e8df4a1e3d67f9530'
     )
 
     client.request(
       {
         method: 'GET',
-        path: '/tutorial',
+        path: '/me/videos',
       },
       function (error, body, status_code, headers) {
         if (error) {
           console.log(error)
         }
 
-        console.log(body)
+        console.log(body.data.length)
+        console.log(body.data.filter((b) => b.uri === 'videos/517001529'))
       }
     )
 
@@ -60,10 +61,9 @@ export default {
     }
   },
   async fetch() {
-    const contentUrl = 'https://vimeo.com/65720665'
+    const contentUrl = 'https://vimeo.com/517001529/3c65724142'
     const requestUrl = `https://vimeo.com/api/oembed.json?url=${contentUrl}&background=true`
     const response = await this.$axios.$get(requestUrl)
-    console.log(response)
 
     this.videoHtml = response.html
     this.videoId = response.video_id
