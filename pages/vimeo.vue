@@ -1,26 +1,35 @@
 <template>
-  <client-only>
+  <div>
+    <h1>Vimeo API</h1>
     <div>
-      <h1>Vimeo API</h1>
-      <div>
-        <h2>get content from vimeo</h2>
-        <p>url: https://vimeo.com/517001529/3c65724142</p>
-        <template v-if="videoHtml">
-          <div v-html="videoHtml"></div>
-        </template>
-        <button v-on:click="showPlayer">showPlayer</button>
-        <div id="myVideo" style="width: 800px; height: 800px"></div>
-      </div>
-      <div>
-        <h2>upload</h2>
-        <button v-on:click="uploadVideo">upload video</button>
-        <pre>{{ uploadResult }}</pre>
-      </div>
-      <NuxtLink to="/"> Home page </NuxtLink>
+      <h2>get content from vimeo</h2>
+      <p>url: https://vimeo.com/517001529/3c65724142</p>
+      <template v-if="videoHtml">
+        <div v-html="videoHtml"></div>
+      </template>
+      <p>url: https://vimeo.com/518045250</p>
+      <iframe
+        src="https://player.vimeo.com/video/518045250"
+        width="640"
+        height="360"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; encrypted-media"
+        data-vimeo-backgroud="true"
+        id="iframe-video"
+      ></iframe>
+
+      <button v-on:click="showPlayer">showPlayer</button>
+      <div id="myVideo" style="width: 800px; height: 800px"></div>
     </div>
-  </client-only>
+    <div>
+      <h2>upload</h2>
+      <button v-on:click="uploadVideo">upload video</button>
+      <pre>{{ uploadResult }}</pre>
+    </div>
+    <NuxtLink to="/"> Home page </NuxtLink>
+  </div>
 </template>
-<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
 import Player from '@vimeo/player'
 let Vimeos = require('vimeo').Vimeo
@@ -30,7 +39,17 @@ let client = new Vimeos(
   'KeF0FjKgui7eO9rIxgKnb7EnUOavO9FGrV9dP1uFUxHL12N/ywI0Itqm1AawklZ6mEGRp+vhc8ieW0cdY3nsTczglhgApVl5ErwNIi96j77Ig4t09d9Cw3OlKYf04L7L',
   'a827242a9e5e656e8df4a1e3d67f9530'
 )
+
 export default {
+  mounted: function () {
+    const iframe = document.querySelector('#iframe-video')
+    const player = new Player(iframe)
+
+    player.on('play', function () {
+      console.log('played the video!')
+    })
+  },
+
   data: function () {
     return { videoHtml: '', uploadResult: '', videoId: '' }
   },
@@ -51,7 +70,7 @@ export default {
           console.log(error)
         }
 
-        console.log(body.data.length)
+        console.log(body.data[0])
         console.log(body.data.filter((b) => b.uri === 'videos/517001529'))
       }
     )
